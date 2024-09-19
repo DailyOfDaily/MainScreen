@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시작화면</title>
+
+    <link rel="stylesheet" type="text/css" href="Main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+<body>
+  <div class="header">
+    [정보찾기] 메이플스토리  |||  던전앤파이터
+  </div>
+  <div class="mid left">
+    <a href="Maple_1-main.html">
+      <div class="main-img">
+        <!-- 캐러셀 시작 -->
+        <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+          <div class="carousel-inner" id="carouselInner_maple">
+              <!-- Slides will be inserted here by JavaScript -->
+          </div>
+        </div>
+        <!-- 캐러셀 종료 -->
+      </div>
+    </a>
+  </div>
+  <div class="mid right">
+    <a href="https://dfproject.onrender.com/">
+      <div class="main-img">
+        <!-- 캐러셀 시작 -->
+        <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+          <div class="carousel-inner" id="carouselInner_df">
+              <!-- Slides will be inserted here by JavaScript -->
+          </div>
+        </div>
+        <!-- 캐러셀 종료 -->
+      </div>
+    </a>
+  </div>
+  <div class="footer">
+    2024 Daily-J All rights reserved.
+  </div>
+
+  <script>
+    // 이미지 경로의 기본 부분
+    const basePath_maple = 'Maple_img/batch_maple_';
+    const totalImages_maple = 46; // 총 이미지 수
+
+    // 이미지 파일 이름 배열 생성
+    const imagePaths_maple = Array.from({ length: totalImages_maple }, (_, index) => {
+        // 이미지 번호를 1부터 시작하도록 조정
+        const imageNumber = index + 1;
+        return `${basePath_maple}${imageNumber}.jpg`;
+    });
+
+    const carouselInner_maple = document.getElementById('carouselInner_maple');
+
+    imagePaths_maple.forEach((path, index) => {
+        const isActive = index === 0 ? 'active' : ''; // 첫 번째 이미지를 active로 설정
+        const carouselItem = `
+            <div class="carousel-item ${isActive}" data-bs-interval="1500">
+                <img src="${path}" class="d-block w-100" alt="...">
+            </div>
+        `;
+        carouselInner_maple.innerHTML += carouselItem;
+    });
+
+    // 이미지 경로의 기본 부분
+    const basePath_df = 'DF_img/batch_df ';
+    const totalImages_df = 49; // 총 이미지 수
+
+    // 이미지 파일 이름 배열 생성
+    const imagePaths_df = Array.from({ length: totalImages_df }, (_, index) => {
+        // 이미지 번호를 1부터 시작하도록 조정
+        const imageNumber = index + 1;
+        return `${basePath_df}${imageNumber}.jpg`;
+    });
+
+    const carouselInner_df = document.getElementById('carouselInner_df');
+
+    imagePaths_df.forEach((path, index) => {
+        const isActive = index === 0 ? 'active' : ''; // 첫 번째 이미지를 active로 설정
+        const carouselItem = `
+            <div class="carousel-item ${isActive}" data-bs-interval="1500">
+                <img src="${path}" class="d-block w-100" alt="...">
+            </div>
+        `;
+        carouselInner_df.innerHTML += carouselItem;
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
